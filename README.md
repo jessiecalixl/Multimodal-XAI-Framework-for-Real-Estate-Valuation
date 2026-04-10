@@ -7,7 +7,7 @@ Jessie Calix | Supervisor: Antonio Zabaleta Moreno | April 2026
 
 Most Automated Valuation Models (AVMs) rely only on structured data and offer no explanation for their predictions. This project addresses both problems: it combines **property images** with tabular features to capture what structured data misses, and uses **SHAP + Grad-CAM** to make every prediction interpretable.
 
-Tested on the [Swiss Real Estate Dataset](https://github.com/IliaAzizi/Swiss-Real-Estate-Dataset) — 11,105 rental listings with matched tabular data and property images.
+Tested on the Swiss Real Estate Dataset — 11,105 rental listings with matched tabular data and property images.
 
 ## Architecture
 
