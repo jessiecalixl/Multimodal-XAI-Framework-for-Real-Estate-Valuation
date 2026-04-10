@@ -9,6 +9,10 @@ Most Automated Valuation Models (AVMs) rely only on structured data and offer no
 
 Tested on the [Swiss Real Estate Dataset](https://github.com/IliaAzizi/Swiss-Real-Estate-Dataset) — 11,105 rental listings with matched tabular data and property images.
 
+## Architecture
+
+![Framework architecture](assets/architecture.png)
+
 ## Results
 
 | Model | RMSE (CHF) | R² | MAPE (%) |
@@ -19,25 +23,6 @@ Tested on the [Swiss Real Estate Dataset](https://github.com/IliaAzizi/Swiss-Rea
 | XGBoost — multimodal | 294 | 0.725 | 10.58 |
 
 Visual features account for a mean of **54.2%** of individual prediction explanations across the test set. The Identical Twins case study shows that structurally near-identical properties in the same area receive different predictions driven primarily by visual SHAP contributions.
-
-## Architecture
-
-```
-Tabular (living_space, rooms, lat, lon)
-                │
-                ├──────────────────────────────┐
-                                               │
-Property images (2×2 montage)          ResNet-50 (frozen)
-                                       → 2048-d → PCA 128-d
-                                               │
-                               Feature concat (132 total)
-                                               │
-                                       LightGBM regressor
-                                               │
-                              ┌────────────────┴────────────┐
-                          TreeSHAP                       Grad-CAM
-                    (feature attribution)         (spatial heatmaps)
-```
 
 ## Notebooks
 
